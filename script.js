@@ -1,63 +1,65 @@
-const questions = [
+document.getElementById("btnEmpezar").addEventListener("click", iniciarJuego);
+
+const preguntas = [
     {
-        question: "¿Cuál es el principal compromiso de la Gerencia General de SINERGY SOLUCIONES INTEGRALES?",
-        options: [
-            "Aumentar la productividad de los empleados.",
-            "Implementar un Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST).",
-            "Reducir costos operativos.",
-            "Ampliar la oferta de servicios."
-        ],
-        answer: 1
-    },
-    {
-        question: "¿Qué aspecto se busca promover a través de la implementación del SG-SST?",
-        options: [
-            "La competitividad en el mercado.",
-            "La calidad de vida laboral.",
-            "La expansión de la empresa.",
-            "La innovación tecnológica."
-        ],
-        answer: 1
+        pregunta: "¿Cuál es el principal compromiso de la Gerencia General de SINERGY SOLUCIONES INTEGRALES?",
+        opciones: ["Aumentar la productividad", "Implementar SG-SST", "Reducir costos", "Ampliar oferta"],
+        respuesta: 1
     }
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
+let indicePregunta = 0;
+let puntuacion = 0;
+let tiempoRestante = 30;
+let intervaloTiempo;
 
-const startButton = document.getElementById("startGame");
-const gameArea = document.getElementById("gameArea");
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
-const scoreElement = document.getElementById("score");
+function iniciarJuego() {
+    document.getElementById("inicio").classList.add("oculto");
+    document.getElementById("juego").classList.remove("oculto");
+    mostrarPregunta();
+    iniciarTemporizador();
+}
 
-startButton.addEventListener("click", () => {
-    startButton.style.display = "none";
-    gameArea.classList.remove("hidden");
-    showQuestion();
-});
+function mostrarPregunta() {
+    let p = preguntas[indicePregunta];
+    document.getElementById("pregunta").innerText = p.pregunta;
+    let opcionesDiv = document.getElementById("opciones");
+    opcionesDiv.innerHTML = "";
+    p.opciones.forEach((opcion, index) => {
+        let btn = document.createElement("button");
+        btn.innerText = opcion;
+        btn.classList.add("opcion");
+        btn.addEventListener("click", () => verificarRespuesta(index));
+        opcionesDiv.appendChild(btn);
+    });
+}
 
-function showQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        const q = questions[currentQuestionIndex];
-        questionElement.textContent = q.question;
-        optionsElement.innerHTML = "";
-        
-        q.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.textContent = option;
-            button.addEventListener("click", () => checkAnswer(index));
-            optionsElement.appendChild(button);
-        });
+function verificarRespuesta(indice) {
+    if (indice === preguntas[indicePregunta].respuesta) {
+        puntuacion += 100;
+    }
+    document.getElementById("score").innerText = puntuacion;
+    siguientePregunta();
+}
+
+function siguientePregunta() {
+    indicePregunta++;
+    if (indicePregunta < preguntas.length) {
+        mostrarPregunta();
     } else {
-        gameArea.innerHTML = `<h2>¡Juego terminado!</h2><p>Tu puntuación: ${score}</p>`;
+        alert("Juego terminado. Puntuación: " + puntuacion);
+        location.reload();
     }
 }
 
-function checkAnswer(index) {
-    if (index === questions[currentQuestionIndex].answer) {
-        score += 100;
-    }
-    currentQuestionIndex++;
-    scoreElement.textContent = `Puntuación: ${score}`;
-    showQuestion();
+function iniciarTemporizador() {
+    intervaloTiempo = setInterval(() => {
+        tiempoRestante--;
+        document.getElementById("tiempo").innerText = tiempoRestante;
+        if (tiempoRestante === 0) {
+            clearInterval(intervaloTiempo);
+            alert("Tiempo agotado");
+            location.reload();
+        }
+    }, 1000);
 }

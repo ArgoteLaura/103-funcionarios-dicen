@@ -5,17 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>115 FUNCIONARIOS DICEN</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Bienvenido a 115 FUNCIONARIOS DICEN!</h1>
-        <button id="startGame">Iniciar Juego</button>
-        <div id="gameArea" class="hidden">
-            <p id="question"></p>
-            <div id="options"></div>
-            <p id="score">Puntuación: 0</p>
+    <div id="inicio" class="pantalla-inicio">
+        <img src="sinergy_soluciones_integrales_logo.jpeg" alt="Sinergy Logo" class="logo">
+        <h1>115 FUNCIONARIOS DICEN</h1>
+        <button id="btnEmpezar">EMPEZAR</button>
+    </div>
+    
+    <div id="juego" class="pantalla-juego oculto">
+        <div class="info">
+            <div id="cronometro">30</div>
+            <div id="puntos">Puntaje: 0</div>
+        </div>
+        <div id="pregunta">¿Pregunta de ejemplo?</div>
+        <div id="opciones" class="opciones">
+            <button class="opcion" data-respuesta="A">A. Opción 1</button>
+            <button class="opcion" data-respuesta="B">B. Opción 2</button>
+            <button class="opcion" data-respuesta="C">C. Opción 3</button>
+            <button class="opcion" data-respuesta="D">D. Opción 4</button>
+        </div>
+        <div class="comodines">
+            <button id="comodin50">50/50</button>
+            <button id="comodinLlamada">Llamada a un amigo</button>
+            <button id="comodinComite">Comité Administrativo</button>
+            <button id="comodinSG">SG-SST</button>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
