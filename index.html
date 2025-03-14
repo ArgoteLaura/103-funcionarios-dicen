@@ -9,8 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <audio id="audioInicio" src="Audios/cancion_inicial.mp3"></audio>
+    <audio id="audioPreguntas" src="Audios/ambiente.mp3"></audio>
+    <audio id="audio_respuesta_correcta" src="Audios/respuesta_correcta.mp3"></audio>
+    <audio id="audio_respuesta_incorrecta" src="Audios/respuesta_incorrecta.mp3"></audio>
     <div id="inicio" class="pantalla-inicio">
-        <!-- <img src="sinergy_soluciones_integrales_logo.jpeg" alt="Sinergy Logo" class="logo"> -->
         <h1>115 FUNCIONARIOS DICEN</h1>
         <button id="btnEmpezar">EMPEZAR</button>
     </div>
@@ -20,13 +23,13 @@
             <div id="score">Puntaje: 0</div>
             <div id="tiempo">30</div>
         </div>
-        <div id="pregunta">Pregunta aparecerá aquí</div>
+        <div id="pregunta">¿Estas listo parta jugar?</div>
         <div id="opciones" class="opciones"></div>
         <div class="comodines">
-            <button id="btn5050">50/50</button>
-            <button id="btnLlamada">Llamada a un amigo</button>
-            <button id="btnComite">Comité Gerencial</button>
-            <button id="btnSGSST">SG-SST</button>
+            <button id="btn5050"></button>
+            <button id="btnLlamada"></button>
+            <button id="btnComite"></button>
+            <button id="btnSGSST"></button>
         </div>
     </div>
 </body>
