@@ -2,10 +2,8 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById("btnEmpezar").addEventListener("click", iniciarJuego);
-            document.getElementById("btn5050").addEventListener("click", usar5050);
-            document.getElementById("btnLlamada").addEventListener("click", usarLlamada);
-            document.getElementById("btnComite").addEventListener("click", usarComite);
-            document.getElementById("btnSGSST").addEventListener("click", usarSGSST);
+            document.getElementById("btnAyudaAleatoria").addEventListener("click", usarAyudaAleatoria);
+
         });
 
      
@@ -105,22 +103,6 @@
             actualizarPuntuacion();
             siguientePregunta();
 
-            // Ocultar los comodines al inicio
-           /*  document.getElementById("btn5050").style.display = "none";
-            document.getElementById("btnLlamada").style.display = "none";
-            document.getElementById("btnComite").style.display = "none";
-            document.getElementById("btnSGSST").style.display = "none";
-
-            setTimeout(() => {
-                siguientePregunta();
-                document.getElementById("btn5050").style.display = "block"; // Mostrar comodines después de 6 segundos
-                document.getElementById("btnLlamada").style.display = "block";
-                document.getElementById("btnComite").style.display = "block";
-                document.getElementById("btnSGSST").style.display = "block";
-            }, 6000); */
-
-            /* let audio = document.getElementById("audioInicio");
-            audio.play(); */
         }
 
         function siguientePregunta() {
@@ -261,15 +243,14 @@ function verificarRespuesta(indice) {
         },3000);
         }
 
-        function usarComite() {
+         function usarComite() {
             setTimeout(() => {
             Swal.fire({
                 title: "El Comité Gerencial recomienda que la respuesta correcta es:  ",
                 icon: "succes",
                 confirmButtonText: "Aceptar"
             });
-            /* alert("El Comité Gerencial recomienda que la respuesta correcta es:"); */
-            document.getElementById("btnComite").disabled = true;
+             document.getElementById("btnComite").disabled = true;
             document.getElementById("btnComite").style.backgroundColor = "gray";
         },3000);
         }
@@ -279,11 +260,28 @@ function verificarRespuesta(indice) {
             Swal.fire({
                 title: "SG-SST sugiere que la respuesta correcta es:",
                 icon: "succes",
-                confirmButtonText: "Aceptar"
-            });
-            /* alert("SG-SST sugiere que la respuesta correcta es:"); */
-            document.getElementById("btnSGSST").disabled = true;
+                confirmButtonText: "Aceptar" 
+            }); 
+             document.getElementById("btnSGSST").disabled = true;
             document.getElementById("btnSGSST").style.backgroundColor = "gray";
         },3000);
-        }
+        } 
 
+
+        function perderJuego1() {
+            Swal.fire({ title: "¡Mala suerte!", text: "Has perdido el juego.", icon: "error", confirmButtonText: "Aceptar" })
+                .then(() => finalizarJuego());
+        }
+        
+        function perderJuego2() {
+            Swal.fire({ title: "¡Oh no!", text: "Una falla inesperada ha terminado tu juego.", icon: "error", confirmButtonText: "Aceptar" })
+                .then(() => finalizarJuego());
+        }
+        
+
+
+        function usarAyudaAleatoria() {
+            let ayudas = [usar5050, usarLlamada, usarComite, usarSGSST, perderJuego1, perderJuego2];
+            let ayudaSeleccionada = ayudas[Math.floor(Math.random() * ayudas.length)];
+            ayudaSeleccionada();
+        }
