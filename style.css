@@ -127,6 +127,28 @@ h1 {
     cursor: pointer;
     margin-top: 50px;
 }
+
+#btnAyudaAleatoria1 {
+    background-image: url('./ImagenJPEG/casino.png');
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+#btnAyudaAleatoria2 {
+    background-image: url('./ImagenJPEG/casino.png');
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    margin-top: 50px;
+}
 /* #btnComite {
     background-image: url('./imgBotones/audiencia.png');
     background-size: cover;
