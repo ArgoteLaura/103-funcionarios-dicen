@@ -257,7 +257,7 @@ function usarLlamada() {
     let p = preguntas[indicePregunta];
     let respuestaCorrecta = p.opciones[p.respuesta];
     Swal.fire({
-        title: "Tus amigos sugiere que...",
+        title: "Tus amigos sugieren que...",
         text: "Llama a dos amigos",
         imageUrl: "./imgBotones/Llamada_2_Amigos.jpg",
         imageHeight: 100, 
@@ -350,7 +350,7 @@ function usarAyudaAleatoria1() {
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dados.gif" width="200px" alt="Cargando">', 
+        html: '<img src="ImagenFondo/dados2.gif" width="200px" alt="Cargando">', 
         willOpen: () => {
             // Swal.showLoading() ya no es necesario
         }
@@ -397,7 +397,7 @@ function usarAyudaAleatoria2() {
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dados.gif" width="200px" alt="Cargando">', 
+        html: '<img src="ImagenFondo/dados2.gif" width="200px" alt="Cargando">', 
         willOpen: () => {
             // Swal.showLoading() ya no es necesario
         }
