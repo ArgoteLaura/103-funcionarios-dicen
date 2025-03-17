@@ -37,7 +37,6 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
-
 }
 
 .oculto {
@@ -62,6 +61,7 @@ h1 {
     margin-bottom: 20px;
     border-radius: 10px;
 }
+
 #opciones {
     
     align-items: center;
@@ -71,8 +71,6 @@ h1 {
     width: 100%;
     max-width: 800px;
     margin-top: 20px;
-
-
 }
 
 .grid-opciones {

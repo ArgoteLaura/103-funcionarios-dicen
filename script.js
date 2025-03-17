@@ -350,7 +350,7 @@ function usarAyudaAleatoria1() {
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dados2.gif" width="200px" alt="Cargando">', 
+        html: '<img src="ImagenFondo/dado3D.gif" width="200px" alt="Cargando">', 
         willOpen: () => {
             // Swal.showLoading() ya no es necesario
         }
@@ -373,7 +373,7 @@ function usarAyudaAleatoria1() {
     setTimeout(() => {
         Swal.close(); // Cerrar el mensaje de carga
         ayudaSeleccionada(); // Ejecutar la ayuda seleccionada
-    }, 2000);
+    }, 3000);
 }
 
 function usarAyudaAleatoria2() {
@@ -397,7 +397,7 @@ function usarAyudaAleatoria2() {
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dados2.gif" width="200px" alt="Cargando">', 
+        html: '<img src="ImagenFondo/dado3D.gif" width="200px" alt="Cargando">', 
         willOpen: () => {
             // Swal.showLoading() ya no es necesario
         }
@@ -421,5 +421,5 @@ function usarAyudaAleatoria2() {
     setTimeout(() => {
         Swal.close(); // Cerrar el mensaje de carga
         ayudaSeleccionada(); // Ejecutar la ayuda seleccionada
-    }, 2000);
+    }, 3000);
 }
