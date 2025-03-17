@@ -105,7 +105,7 @@ h1 {
     font-weight: bold;   
 }
 #btn5050 {
-    background-image: url('./imgBotones/50-por-ciento.png');
+    background-image: url('./imgBotones/dado.png');
     background-size: cover;
     background-position: center;
     width: 60px;
@@ -117,7 +117,7 @@ h1 {
 }
 
 #btnLlamada {
-    background-image: url('./imgBotones/viber.png');
+    background-image: url('./imgBotones/dado.png');
     background-size: cover;
     background-position: center;
     width: 60px;
@@ -127,7 +127,29 @@ h1 {
     cursor: pointer;
     margin-top: 50px;
 }
-#btnComite {
+
+#btnAyudaAleatoria1 {
+    background-image: url('./ImagenJPEG/casino.png');
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+#btnAyudaAleatoria2 {
+    background-image: url('./ImagenJPEG/casino.png');
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    margin-top: 50px;
+}
+/* #btnComite {
     background-image: url('./imgBotones/audiencia.png');
     background-size: cover;
     background-position: center;
@@ -148,4 +170,4 @@ h1 {
     border: none;
     cursor: pointer;
     margin-top: 50px;
-}
+} */
