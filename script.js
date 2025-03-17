@@ -78,10 +78,10 @@ const preguntas = [
         respuesta: 0
     },
     {
-        pregunta: "10. ¿Cómo se informa la política de seguridad y salud en el trabajo a los empleados?",
+        pregunta: "10. ¿A quién se debe informar la política de seguridad y salud en el trabajo a los empleados?",
         opciones: ["a. Solo en reuniones trimestrales.",
         "b. A través de correos electrónicos.",
-        "c. Se implementará y comunicará a todo el personal y partes interesadas.",
+        "c. Se debe informar a todo el personal vinculado contractualmente con SINERGY SOLUCIONES INTEGRALES.",
         "d. No se comunicará formalmente."],
         respuesta: 2
     },
@@ -232,14 +232,14 @@ function finalizarJuego() {
 function usar5050() {
     // Mostrar mensaje de carga
     Swal.fire({
-        title: "Cargando comodín 50:50",
+        title: "50:50",
         text: "Eliminando dos opciones incorrectas...",
         //icon: "info",
-        imageUrl: "./ImagenFondo/DSCF7025.jpg",
+        imageUrl: "./imgBotones/50_50.jpg",
         imageHeight: 100, 
         imageAlt: "Comodín 50:50", 
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
         }).then(() => {
         // Eliminar las opciones después de mostrar el mensaje
         let p = preguntas[indicePregunta];
@@ -257,10 +257,14 @@ function usarLlamada() {
     let p = preguntas[indicePregunta];
     let respuestaCorrecta = p.opciones[p.respuesta];
     Swal.fire({
-        title: "Tu amigo sugiere que la respuesta correcta es: ",
-        text: respuestaCorrecta,
-        icon: "success",
-        confirmButtonText: "Aceptar"
+        title: "Tus amigos sugiere que...",
+        text: "Llama a dos amigos",
+        imageUrl: "./imgBotones/Llamada_2_Amigos.jpg",
+        imageHeight: 100, 
+        imageAlt: "Comodín Llamada", 
+        showConfirmButton: false,
+        confirmButtonText: "Aceptar",
+        timer: 3000
     });
 }
 
@@ -268,10 +272,14 @@ function usarComite() {
     let p = preguntas[indicePregunta];
     let respuestaCorrecta = p.opciones[p.respuesta];
     Swal.fire({
-        title: "El Comité Gerencial recomienda que la respuesta correcta es: ",
-        text: respuestaCorrecta,
-        icon: "success",
-        confirmButtonText: "Aceptar"
+        title: "La audiencia recomienda que... ",
+        text: "Dirijase a la audiencia",
+        imageUrl: "./imgBotones/Audiencia.jpg",
+        imageHeight: 100, 
+        imageAlt: "Audiencia",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: false,
+        timer: 3000
     });
 }
 
@@ -279,32 +287,42 @@ function usarSGSST() {
     let p = preguntas[indicePregunta];
     let respuestaCorrecta = p.opciones[p.respuesta];
     Swal.fire({
-        title: "SG-SST sugiere que la respuesta correcta es:",
-        text: respuestaCorrecta,
-        icon: "success",
-        confirmButtonText: "Aceptar" 
+        title: "El SG-SST sugiere que...",
+        text: "Dirijase a la profesional",
+        imageUrl: "./imgBotones/SG-SST.jpg",
+        imageHeight: 100, 
+        imageAlt: "SG-SST",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: false,
+        timer: 3000 
     });
 }
 
 function perderJuego1() {
     Swal.fire({ 
-        title: "¡Mala suerte!", 
+        title: "Pierde el turno", 
         text: "Has perdido el juego.", 
-        icon: "error", 
-        confirmButtonText: "Aceptar" 
+        imageUrl: "./imgBotones/Pierde_Turno.jpg",
+        imageHeight: 100, 
+        imageAlt: "Pierde_Turno",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: false,
+        timer: 3000  
     }).then(() => finalizarJuego());
 }
 
 function perderJuego2() {
     Swal.fire({ 
-        title: "¡Oh no!", 
-        text: "Una falla inesperada ha terminado tu juego.", 
-        icon: "error", 
-        confirmButtonText: "Aceptar" 
+        title: "Pierde el turno", 
+        text: "Has perdido el juego.", 
+        imageUrl: "./imgBotones/Pierde_Turno.jpg",
+        imageHeight: 100, 
+        imageAlt: "Pierde_Turno",
+        confirmButtonText: "Aceptar",
+        showConfirmButton: false,
+        timer: 3000 
     }).then(() => finalizarJuego());
 }
-
-
 
 function usarAyudaAleatoria1() {
     // Verificar si ya se usó el comodín
@@ -342,7 +360,7 @@ function usarAyudaAleatoria1() {
     document.getElementById("btnAyudaAleatoria1").style.backgroundColor = "gray";
     
     // Lista de ayudas posibles
-    let ayudas = [usar5050, usarLlamada, usarComite, usarSGSST, perderJuego1, perderJuego2];
+    let ayudas = [perderJuego2, usar5050, usarLlamada, perderJuego1, usarComite, usarSGSST];
     
     // Seleccionar una ayuda al azar
     let indiceAyuda = Math.floor(Math.random() * ayudas.length);
@@ -389,7 +407,7 @@ function usarAyudaAleatoria2() {
     document.getElementById("btnAyudaAleatoria2").style.backgroundColor = "gray";
     
     // Lista de ayudas posibles
-    let ayudas = [usar5050, usarLlamada, usarComite, usarSGSST, perderJuego1, perderJuego2];
+    let ayudas = [perderJuego2, usar5050, usarLlamada, perderJuego1, usarComite, usarSGSST  ];
     
     // Filtrar la ayuda ya utilizada (si existe)
     if (ayudaUsada !== null) {
