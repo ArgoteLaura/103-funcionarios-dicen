@@ -46,7 +46,7 @@ const preguntas = [
         respuesta: 1
     },
     {
-        pregunta: "6. ¿Cuál es el principal compromiso de SINERGY SOLUCIONES INTEGRALES con los funcionarios para procurar la Seguridad y Salud en el Trabajo?",
+        pregunta: "6. ¿Cuál es el principal compromiso de SINERGY con los funcionarios para procurar la Seguridad y Salud en el Trabajo?",
         opciones: ["a. Aumentar la productividad de los empleados.",
         "b. Implementar un Sistema de Gestión de la Seguridad y Salud en el Trabajo (SG-SST).",
         "c. Reducir costos operativos.",
@@ -81,7 +81,7 @@ const preguntas = [
         pregunta: "10. ¿A quién se debe informar la política de seguridad y salud en el trabajo a los empleados?",
         opciones: ["a. Solo en reuniones trimestrales.",
         "b. A través de correos electrónicos.",
-        "c. Se debe informar a todo el personal vinculado contractualmente con SINERGY SOLUCIONES INTEGRALES.",
+        "c. Se debe informar a todo el personal vinculado contractualmente con SINERGY.",
         "d. No se comunicará formalmente."],
         respuesta: 2
     },
@@ -140,6 +140,7 @@ function mostrarPregunta() {
         });
         opcionesDiv.appendChild(btn);
     });
+
 }
 
 function verificarRespuesta(indice) {
@@ -164,24 +165,60 @@ function verificarRespuesta(indice) {
         let audio_respuesta_correcta = document.getElementById("audio_respuesta_correcta");
         audio_respuesta_correcta.play();
 
-        // Pasar a la siguiente pregunta después de 0.5 segundos
-        setTimeout(() => {
-            indicePregunta++;
-            siguientePregunta();
-        }, 500);
+       
+        if (puntuacion >= 1000) {
+            setTimeout(mostrarPantallaGanador, 500);
+        } else {
+            setTimeout(() => {
+                indicePregunta++;
+                siguientePregunta();
+            }, 500);
+        }
     } else {
-        Swal.fire({
-            title: "Incorrecto",
-            text: "Intenta de nuevo.",
-            icon: "error"
-        });
-        finalizarJuego();
-        let audio_respuesta_incorrecta = document.getElementById("audio_respuesta_incorrecta");
-        audio_respuesta_incorrecta.play();
+        // Solo finalizar el juego si no se ha alcanzado la puntuación máxima
+        if (puntuacion < 1000) {
+            Swal.fire({
+                title: "Incorrecto",
+                text: "Intenta de nuevo.",
+                icon: "error"
+            });
+            finalizarJuego();
+            let audio_respuesta_incorrecta = document.getElementById("audio_respuesta_incorrecta");
+            audio_respuesta_incorrecta.play();
+        }
     }
 
     actualizarPuntuacion();
 }
+
+//funcion para vfunction mostrarPantallaGanador() {
+    function mostrarPantallaGanador() {
+        const juego = document.getElementById('juego');
+        juego.innerHTML = `
+            <div class="pantalla-ganador">
+            <h1>¡Felicidades, gran ganador!</h1>
+
+            <p>
+                Eres el gran ganador de <strong>"115 Funcionarios Dicen"</strong> sobre el comité del COPASST. </p> 
+        <p>
+                Tu conocimiento y rapidez te han llevado a la cima, demostrando que estás bien 
+                informado sobre la seguridad y salud en el trabajo.
+            </p>
+
+            <p>
+                Gracias por participar y por ser parte de este reto. ¡Sigue promoviendo una cultura 
+                de prevención y bienestar en nuestro entorno laboral!
+            </p>
+
+            <p><strong>¡Enhorabuena y mucho éxito!</strong></p>
+
+            <button onclick="finalizarJuego()">Volver al inicio</button>
+        </div>
+
+        `;
+        document.body.style.backgroundImage = "url('./imgBotones/Fondo_Ganador.jpg')"; // Cambiar fondo
+    }
+
 
 function actualizarPuntuacion() {
     document.getElementById("score").innerText = "Puntaje: " + puntuacion;

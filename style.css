@@ -22,6 +22,37 @@ body {
     margin-top: 50px;
 }
 
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFA500; /* Naranja de Sinergy */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 110px;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    min-width: 120px;
+}
+
+#tiempo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 69, 0, 0.8); /* Rojo anaranjado */
+    padding: 3px 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    min-width: 80px;
+}
+
 h1 {
     font-size: 2.5rem;
     margin: 20px 0;
@@ -43,52 +74,80 @@ button {
     display: none;
 }
 
-#pregunta {
-    font-size: 1.5rem;
-    margin: 10px auto;
-    padding: 20px;
-    background: white;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-    display: inline-block;
-}
 
 h1 {
-    font-size: 3rem;
+    font-size: 5rem;
     color: #ff6600;
     text-shadow: 2px 2px 5px black;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
-#opciones {
-    
+/* Estilos para la pregunta */
+#pregunta {
+    font-size: 2rem;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    max-width: 80%;
+    word-wrap: break-word;
+    white-space: normal;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de las opciones en 2 filas x 2 columnas */
+#opciones {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    width: 100%;
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
-    margin-top: 20px;
+    width: 90%;
+    margin: 20px auto;
 }
 
-.grid-opciones {
-    display: grid;
-    gap: 10px;
-    width: 80%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
+/* Estilos de los botones de opciones */
 .opcion {
-    background: orange;
-    color: black;
-    padding: 10px;
-    border: 2px solid orange;
-    border-radius: 10px;
-    cursor: pointer;
+    background: #f7931e; /* Color naranja de Sinergy */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.opcion:hover {
+    background: #d67e17; /* Un naranja más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 600px) {
+    #pregunta {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    #opciones {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .opcion {
+        font-size: 1.5rem;
+        padding: 12px;
+    }
 }
 
 #comodines button {
@@ -101,29 +160,6 @@ h1 {
 }
 #btnEmpezar {
     font-weight: bold;   
-}
-#btn5050 {
-    background-image: url('./imgBotones/dado.png');
-    background-size: cover;
-    background-position: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    margin-top: 50px;
-}
-
-#btnLlamada {
-    background-image: url('./imgBotones/dado.png');
-    background-size: cover;
-    background-position: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    margin-top: 50px;
 }
 
 #btnAyudaAleatoria1 {
@@ -147,25 +183,10 @@ h1 {
     cursor: pointer;
     margin-top: 50px;
 }
-/* #btnComite {
-    background-image: url('./imgBotones/audiencia.png');
-    background-size: cover;
-    background-position: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    margin-top: 50px;
+
+.pantalla-ganador p {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
-#btnSGSST {
-    background-image: url('./imgBotones/seguridad.png');
-    background-size: cover;
-    background-position: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    margin-top: 50px;
-} */
+
