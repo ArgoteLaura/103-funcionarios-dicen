@@ -199,7 +199,7 @@ function verificarRespuesta(indice) {
             <h1>¡Felicidades, gran ganador!</h1>
 
             <p>
-                Eres el gran ganador de <strong>"115 Funcionarios Dicen"</strong> sobre el comité del COPASST. </p> 
+                Eres el gran ganador de <strong>"103 Funcionarios Dicen"</strong> sobre el comité del COPASST. </p> 
         <p>
                 Tu conocimiento y rapidez te han llevado a la cima, demostrando que estás bien 
                 informado sobre la seguridad y salud en el trabajo.
