@@ -1,2 +1,2 @@
-# Sinergy_Soluciones_Integrales
+# 115-funcionarios-dicen
 Juego interactivo para inducciones y reinducciones en Sinergy

@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('ImagenJPEG/WhatsApp\ Image\ 2025-03-13\ at\ 13.31.55.jpeg');
+    background-image: url('imgBotones/Cobertura_Sinergy.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,16 +59,27 @@ h1 {
 }
 
 button {
-    /* background-color: #ff6600; */ /* Naranja Sinergy */
-    background-image: url('ImagenJPEG/prueba_fondo.jpeg');
+    background: rgb(240, 240, 240);
     border: none;
-    color: white;
+    color: bl;
+    font-weight: bold;
     padding: 10px 20px;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
     margin: 10px;
 }
+#btnEmpezar {
+    background: rgb(8, 74, 130);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}  
 
 .oculto {
     display: none;
@@ -88,8 +99,8 @@ h1 {
     font-size: 2rem;
     margin: 20px auto;
     padding: 20px;
-    background: white;
-    color: black;
+    background: rgb(8, 74, 130);
+    color: white;
     font-weight: bold;
     border-radius: 10px;
     display: flex;
@@ -117,7 +128,7 @@ h1 {
 
 /* Estilos de los botones de opciones */
 .opcion {
-    background: #f7931e; /* Color naranja de Sinergy */
+    background: rgb(225, 125, 13); /* Color naranja de Sinergy */
     color: white;
     padding: 15px;
     border-radius: 8px;

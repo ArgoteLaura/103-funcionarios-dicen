@@ -99,6 +99,10 @@ let ayudaUsada = null;
 function iniciarJuego() {
     document.getElementById("inicio").classList.add("oculto");
     document.getElementById("juego").classList.remove("oculto");
+
+// Cambiar el fondo cuando empieza el juego
+document.body.style.backgroundImage = "url('ImagenJPEG/FondoPreguntas.jpeg')";
+
     puntuacion = 0;
     indicePregunta = 0;
     comodin1Usado = false;
@@ -158,7 +162,7 @@ function verificarRespuesta(indice) {
             title: "¡Correcto!",
             icon: "success",
             showConfirmButton: false, // Oculta el botón de confirmación
-            timer: 3000 // La alerta dura 3 segundos
+            timer: 3500 // La alerta dura 3 segundos
         });
 
         // Reproducir audio de respuesta correcta
@@ -199,7 +203,7 @@ function verificarRespuesta(indice) {
             <h1>¡Felicidades, gran ganador!</h1>
 
             <p>
-                Eres el gran ganador de <strong>"103 Funcionarios Dicen"</strong> sobre el comité del COPASST. </p> 
+                Eres el gran ganador de <strong>"103 Funcionarios Dicen"</strong> sobre el comité de COPASST. </p> 
         <p>
                 Tu conocimiento y rapidez te han llevado a la cima, demostrando que estás bien 
                 informado sobre la seguridad y salud en el trabajo.
@@ -212,11 +216,11 @@ function verificarRespuesta(indice) {
 
             <p><strong>¡Enhorabuena y mucho éxito!</strong></p>
 
-            <button onclick="finalizarJuego()">Volver al inicio</button>
+        <button onclick="location.reload()">Volver al inicio</button>
         </div>
 
         `;
-        document.body.style.backgroundImage = "url('./imgBotones/Fondo_Ganador.jpg')"; // Cambiar fondo
+        document.body.style.backgroundImage = "url('./imgBotones/Mapa_Sinergy.png')"; // Cambiar fondo
     }
 
 
@@ -361,8 +365,10 @@ function perderJuego2() {
     }).then(() => finalizarJuego());
 }
 
+
+
+
 function usarAyudaAleatoria1() {
-    // Verificar si ya se usó el comodín
     console.log("Función usarAyudaAleatoria1 llamada");
     console.log("Estado de comodin1Usado:", comodin1Usado);
     
@@ -377,44 +383,51 @@ function usarAyudaAleatoria1() {
         return;
     }
     
-    // Marcar como usado
-    console.log("Marcando comodin1Usado como true");
     comodin1Usado = true;
     
-    // Mostrar mensaje de carga
     Swal.fire({
         title: "Cargando...",
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dado3D.gif" width="200px" alt="Cargando">', 
-        willOpen: () => {
-            // Swal.showLoading() ya no es necesario
-        }
+        html: '<img src="ImagenDadosGif/dado3D.gif" width="200px" alt="Cargando">'
     });
     
-    // Cambiar solo el estilo del botón sin deshabilitarlo
     document.getElementById("btnAyudaAleatoria1").style.backgroundColor = "gray";
-    
-    // Lista de ayudas posibles
-    let ayudas = [perderJuego2, usar5050, usarLlamada, perderJuego1, usarComite, usarSGSST];
-    
-    // Seleccionar una ayuda al azar
-    let indiceAyuda = Math.floor(Math.random() * ayudas.length);
-    let ayudaSeleccionada = ayudas[indiceAyuda];
-    
-    // Guardar la función de ayuda usada para evitar repetición
+
+    // Lista de ayudas con probabilidades
+    let ayudas = [
+        { funcion: perderJuego2, probabilidad: 0.10 }, // 10%
+        { funcion: usar5050, probabilidad: 0.25 },      // 20%
+        { funcion: usarLlamada, probabilidad: 0.20 },   // 25%
+        { funcion: perderJuego1, probabilidad: 0.10 },  // 15%
+        { funcion: usarComite, probabilidad: 0.20 },    // 15%
+        { funcion: usarSGSST, probabilidad: 0.15 }     // 15%
+    ];
+
+    // Generar un número aleatorio entre 0 y 1
+    let rand = Math.random();
+    let suma = 0;
+    let ayudaSeleccionada = null;
+
+    // Seleccionar la ayuda basada en su probabilidad
+    for (let ayuda of ayudas) {
+        suma += ayuda.probabilidad;
+        if (rand <= suma) {
+            ayudaSeleccionada = ayuda.funcion;
+            break;
+        }
+    }
+
     ayudaUsada = ayudaSeleccionada;
     
-    // Esperar 2 segundos antes de mostrar la ayuda
     setTimeout(() => {
-        Swal.close(); // Cerrar el mensaje de carga
-        ayudaSeleccionada(); // Ejecutar la ayuda seleccionada
+        Swal.close();
+        ayudaSeleccionada();
     }, 3000);
 }
 
 function usarAyudaAleatoria2() {
-    // Verificar si ya se usó el comodín
     if (comodin2Usado) {
         Swal.fire({
             title: "Comodín ya utilizado",
@@ -425,38 +438,51 @@ function usarAyudaAleatoria2() {
         return;
     }
     
-    // Marcar como usado
     comodin2Usado = true;
     
-    // Mostrar mensaje de carga
     Swal.fire({
         title: "Cargando...",
         text: "Seleccionando ayuda aleatoria",
         allowOutsideClick: false,
         showConfirmButton: false,
-        html: '<img src="ImagenFondo/dado3D.gif" width="200px" alt="Cargando">', 
-        willOpen: () => {
-            // Swal.showLoading() ya no es necesario
-        }
+        html: '<img src="ImagenDadosGif/dado3D.gif" width="200px" alt="Cargando">'
     });
-    
-    // Cambiar solo el estilo del botón sin deshabilitarlo
+
     document.getElementById("btnAyudaAleatoria2").style.backgroundColor = "gray";
-    
-    // Lista de ayudas posibles
-    let ayudas = [perderJuego2, usar5050, usarLlamada, perderJuego1, usarComite, usarSGSST  ];
-    
+
+    // Lista de ayudas con probabilidades
+    let ayudas = [
+        { funcion: perderJuego2, probabilidad: 0.10 }, // 10%
+        { funcion: usar5050, probabilidad: 0.25 },      // 20%
+        { funcion: usarLlamada, probabilidad: 0.20 },   // 25%
+        { funcion: perderJuego1, probabilidad: 0.10 },  // 15%
+        { funcion: usarComite, probabilidad: 0.20 },    // 15%
+        { funcion: usarSGSST, probabilidad: 0.15 }     // 15%
+    ];
+
     // Filtrar la ayuda ya utilizada (si existe)
     if (ayudaUsada !== null) {
-        ayudas = ayudas.filter(ayuda => ayuda !== ayudaUsada);
+        ayudas = ayudas.filter(ayuda => ayuda.funcion !== ayudaUsada);
+
+        // Reajustar probabilidades proporcionalmente
+        let totalProbabilidad = ayudas.reduce((sum, ayuda) => sum + ayuda.probabilidad, 0);
+        ayudas.forEach(ayuda => ayuda.probabilidad /= totalProbabilidad);
     }
-    
-    // Seleccionar una ayuda al azar entre las restantes
-    let ayudaSeleccionada = ayudas[Math.floor(Math.random() * ayudas.length)];
-    
-    // Esperar 2 segundos antes de mostrar la ayuda
+
+    let rand = Math.random();
+    let suma = 0;
+    let ayudaSeleccionada = null;
+
+    for (let ayuda of ayudas) {
+        suma += ayuda.probabilidad;
+        if (rand <= suma) {
+            ayudaSeleccionada = ayuda.funcion;
+            break;
+        }
+    }
+
     setTimeout(() => {
-        Swal.close(); // Cerrar el mensaje de carga
-        ayudaSeleccionada(); // Ejecutar la ayuda seleccionada
+        Swal.close();
+        ayudaSeleccionada();
     }, 3000);
 }
