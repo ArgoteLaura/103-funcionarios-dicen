@@ -223,6 +223,7 @@ function verificarRespuesta(indice) {
         document.body.style.backgroundImage = "url('./imgBotones/Mapa_Sinergy.png')"; // Cambiar fondo
         let audio_ganador = document.getElementById("audio_ganador");
         audio_ganador.play();
+
     }
 
 function actualizarPuntuacion() {
