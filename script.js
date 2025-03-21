@@ -56,7 +56,7 @@ const preguntas = [
     {
         pregunta: "7. ¿Qué aspecto se busca promover a través de la implementación del SG-SST?",
         opciones: ["a. La competitividad en el mercado.",
-        "b. La calidad de vida laboral.",
+        "b. La prevención de riesgos laborales y la protección de la salud y seguridad de los trabajadores.",
         "c. La expansión de la empresa.",
         "d. La innovación tecnológica."],
         respuesta: 1
