@@ -171,7 +171,7 @@ function verificarRespuesta(indice) {
 
        
         if (puntuacion >= 1000) {
-            setTimeout(mostrarPantallaGanador, 500);
+            setTimeout(mostrarPantallaGanador, audio_respuesta_correcta.duration * 1000);
         } else {
             setTimeout(() => {
                 indicePregunta++;
@@ -221,8 +221,9 @@ function verificarRespuesta(indice) {
 
         `;
         document.body.style.backgroundImage = "url('./imgBotones/Mapa_Sinergy.png')"; // Cambiar fondo
+        let audio_ganador = document.getElementById("audio_ganador");
+        audio_ganador.play();
     }
-
 
 function actualizarPuntuacion() {
     document.getElementById("score").innerText = "Puntaje: " + puntuacion;
